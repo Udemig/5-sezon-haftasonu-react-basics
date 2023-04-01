@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "./Button";
+import Card from "./Card";
 /* 
   React için Component
   1. Biz function component kullanacağız. Bu yüzden component'larımız fonksiyon
@@ -36,9 +37,26 @@ function App() {
       <div>
         <p>fdgdfgdf</p>
       </div>
-      <Button />
-      <Button />
-      <Button />
+      <Button
+        tiklandiginda={() => {
+          console.log("ilk butona tıkladın");
+        }}
+        text="ahmet"
+        tip="primary"
+        isLink={false}
+      />
+      <Card
+        img="https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__480.jpg"
+        title="Blog 1"
+        summary="ben bir özetim"
+        link="https://medium.com/@emreharman/redux%C4%B1-anlamak-bbe41ee72817"
+      />
+      <Card
+        img="https://static.ticimax.cloud/42449/uploads/urunresimleri/buyuk/doga-manzara-duvar-kagidi-0d4-ab.jpg"
+        title="Blog 2"
+        summary="ben bir özetim 2"
+        link="https://stackoverflow.com/questions/7613546/increase-font-size-chrome-console"
+      />
     </div>
   );
 }
