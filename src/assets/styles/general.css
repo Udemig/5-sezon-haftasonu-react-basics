@@ -1,0 +1,25 @@
+a{
+    text-decoration: none;
+}
+
+.primary{
+    background-color: blue;
+    border:none;
+    padding: 8px 10px;
+    color: white;
+}
+
+.secondary{
+    background-color: gray;
+    border:none;
+    padding: 8px 10px;
+    color: black;
+}
+
+.danger{
+    background-color: orangered;
+    border:none;
+    padding: 8px 10px;
+    color: white;
+}
+

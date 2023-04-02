@@ -1,6 +1,6 @@
 import React from "react";
-import Button from "./Button";
-import Card from "./Card";
+import ListBlogs from "./components/ListBlogs";
+import Button from "./components/Button";
 /* 
   React için Component
   1. Biz function component kullanacağız. Bu yüzden component'larımız fonksiyon
@@ -25,38 +25,68 @@ import Card from "./Card";
   -> HTML tarafında self closed elementler <img> şeklinde kapanırken
   jsx yazımında <img/> şeklinde kapanır
 */
+const blogsFromAPI = [
+  {
+    id: "1",
+    img: "https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__480.jpg",
+    title: "Blog1",
+    summary: "dsffdsf dsfsdf dsfdsf fsdfdsfsdf",
+    link: "https://medium.com/@emreharman/redux%C4%B1-anlamak-bbe41ee72817",
+  },
+  {
+    id: "2",
+    img: "https://static.ticimax.cloud/42449/uploads/urunresimleri/buyuk/doga-manzara-duvar-kagidi-0d4-ab.jpg",
+    title: "Blog2",
+    summary: "dsffdsf dsfsdf dsfdsf fsdfdsfsdf fgdfg fdgfdg",
+    link: "https://stackoverflow.com/questions/7613546/increase-font-size-chrome-console",
+  },
+  {
+    id: "3",
+    img: "https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__480.jpg",
+    title: "Blog1",
+    summary: "dsffdsf dsfsdf dsfdsf fsdfdsfsdf",
+    link: "https://medium.com/@emreharman/redux%C4%B1-anlamak-bbe41ee72817",
+  },
+  {
+    id: "4",
+    img: "https://static.ticimax.cloud/42449/uploads/urunresimleri/buyuk/doga-manzara-duvar-kagidi-0d4-ab.jpg",
+    title: "Blog2",
+    summary: "dsffdsf dsfsdf dsfdsf fsdfdsfsdf fgdfg fdgfdg",
+    link: "https://stackoverflow.com/questions/7613546/increase-font-size-chrome-console",
+  },
+  {
+    id: "5",
+    img: "https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__480.jpg",
+    title: "Blog1",
+    summary: "dsffdsf dsfsdf dsfdsf fsdfdsfsdf",
+    link: "https://medium.com/@emreharman/redux%C4%B1-anlamak-bbe41ee72817",
+  },
+  {
+    id: "6",
+    img: "https://static.ticimax.cloud/42449/uploads/urunresimleri/buyuk/doga-manzara-duvar-kagidi-0d4-ab.jpg",
+    title: "Blog2",
+    summary: "dsffdsf dsfsdf dsfdsf fsdfdsfsdf fgdfg fdgfdg",
+    link: "https://stackoverflow.com/questions/7613546/increase-font-size-chrome-console",
+  },
+];
 
 function App() {
-  const myName = "Emre";
+  const girisYapildiMi = true;
+  const rol="admin"
   return (
     <div>
-      <div className="App">
-        {console.log("ben jsx içerisinde js koduyum")}
-        <h1>Hello {myName}</h1>
-      </div>
-      <div>
-        <p>fdgdfgdf</p>
-      </div>
-      <Button
-        tiklandiginda={() => {
-          console.log("ilk butona tıkladın");
-        }}
-        text="ahmet"
-        tip="primary"
-        isLink={false}
-      />
-      <Card
-        img="https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669__480.jpg"
-        title="Blog 1"
-        summary="ben bir özetim"
-        link="https://medium.com/@emreharman/redux%C4%B1-anlamak-bbe41ee72817"
-      />
-      <Card
-        img="https://static.ticimax.cloud/42449/uploads/urunresimleri/buyuk/doga-manzara-duvar-kagidi-0d4-ab.jpg"
-        title="Blog 2"
-        summary="ben bir özetim 2"
-        link="https://stackoverflow.com/questions/7613546/increase-font-size-chrome-console"
-      />
+      <h1>BLOGS</h1>
+      {
+        girisYapildiMi === false && (<Button text={"Login"} tip="primary" />)
+      }
+      {girisYapildiMi === true ? (
+        <ListBlogs blogs={blogsFromAPI} />
+      ) : (
+        <p>Blog yazılarını görebilmek için öncelikle giriş yapmanız lazım</p>
+      )}
+      {
+        rol==="admin" && (<a href="#">Admin Paneline git</a>)
+      }
     </div>
   );
 }

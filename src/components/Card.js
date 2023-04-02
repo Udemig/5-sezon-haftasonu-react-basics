@@ -1,17 +1,18 @@
 import React from "react";
 
-import "./general.css";
+import styles from "../assets/styles/card.module.css"
 import Button from "./Button";
 
 const Card = (props) => {
+  console.log(styles);
   return (
-    <div class="cardContainer">
-      <div class="cardImageContainer">
+    <div className={styles.cardContainer}>
+      <div className={styles.cardImageContainer}>
         <img src={props.img} alt="" />
       </div>
-      <h3 class="blogTitle">{props.title}</h3>
-      <p class="blogSummary">{props.summary}</p>
-      <div class="card-btn-container">
+      <h3 className={styles.blogTitle}>{props.title}</h3>
+      <p className={styles.blogSummary}>{props.summary}</p>
+      <div >
         {/* <a href={props.link} class="card-btn">
           Devamını Oku
         </a> */}

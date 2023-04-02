@@ -13,7 +13,7 @@
 */
 import React from "react";
 
-import "./general.css";
+import styles from "../assets/styles/button.module.css";
 
 const Button = (props) => {
   console.log(props);
